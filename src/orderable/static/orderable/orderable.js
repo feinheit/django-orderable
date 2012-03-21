@@ -61,8 +61,6 @@
                     inline.find('td.original').hide();
                     inline.find('input[name$="-order"]').closest('td').hide();
                     inline.find('tbody tr.has_original').removeClass('has_original');
-                    // Make sure first TH is colspan=2
-                    inline.find('th:visible:first').attr('colspan','2');
                     // Only allow ordering on existing objects
                     var items = inline.find('tr:visible:not(.add-row,.empty-form) td.original input[type=hidden][name$=-id][value!=]').parents('tr')
                     items.css('cursor', 'move')
@@ -74,8 +72,8 @@
                                     orderField = row.find('input[name$="-order"]');
                                 orderField.val(i + 1);
                             });
-                            rows.filter(':even').addClass('row1').removeClass('row2');
-                            rows.filter(':odd').addClass('row2').removeClass('row1');
+                            items.filter(':even').addClass('row1').removeClass('row2');
+                            items.filter(':odd').addClass('row2').removeClass('row1');
                         }
                     });
                 }
